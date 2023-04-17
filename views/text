@@ -1,0 +1,9 @@
+            <% if(record.length > 0) {%> 
+            <% record.forEach(function(element) {%>
+                <tr>
+                    <td><%= element.clientName%></td>
+                    <td><%= element.propertyChoice%></td>
+                    <td><%= element.location %></td>
+                </tr>
+                <%})%>
+            <%}%>
