@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addInv.css">
     <title>Document</title>
 </head>
 <body>
-<h1>User Information</h1>
-    <table class="table">
-        <thead>
-            <h1>   <%= kindOfDay %> </h1>
-          <tr>
-   
-          </tr>
-        </thead>
-        <tbody>
 
-  
-            </tbody>
-      </table>
+    <h1 style="font-weight: 700;">
+        User Information
+        <span class="info">
+           <a href="#"><i class="ri-information-fill"></i></a> 
+        </span>
+    
+    </h1>
+    <button  class="btn btn-danger" style="background-color: rgb(156, 6, 6);">Grow Your Business </button>
+ <button class="btn"><%=kindOfDay%> </button>
+ <button class="btn"><%=Hours%> - <%=Min+1%> - <%=Sec%> </button>
+
 
 
       <link rel="shortcut icon" type="image/png" href="images/logo.png">
+      
 
 <div class="container-fluid">
-<form action="/client17/search/" method="post" class="d-flex mx-auto" role="search" >
-    <input class="form-control me-2" id="search-item" style="width: 72vw; margin-left: auto;" type="search" placeholder="Search" name="value" aria-label="Search" onkeyup="search()"  >
-    <button class="btn btn-outline-danger" type="submit" >Search</button>
+<form action="/client17/search/" method="post" class="d-flex mx-auto" role="search" style="margin-bottom: 1em;" >
+    <input class="form-control me-2" id="search-item" style="width: 75vw; margin-left: auto; " type="search" placeholder="Search" name="value" aria-label="Search" onkeyup="search()"  >
+    <button class="btn btn-outline-danger" style="background-color:rgb(156, 6, 6); " type="submit" >Search</button>
   </form>
 
   <div class="product-list" id="product-list">
@@ -43,7 +43,7 @@
             <div >
             <%= record[i].clientName %> <%= record[i].email %> <h5>  <%= record[i].propertyChoice %> </h5>
             </div>
-            <div style="display: flex; align-items: center; padding-left: 52rem;" >
+            <div style="display: flex; align-items: center; padding-left: 1em;" >
                 <a href="tel:+91<%= record[i].phone %>" style="position: absolute; right: 0;" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z" /><path d="M21 16.42v3.536a1 1 0 0 1-.93.998c-.437.03-.794.046-1.07.046-8.837 0-16-7.163-16-16 0-.276.015-.633.046-1.07A1 1 0 0 1 4.044 3H7.58a.5.5 0 0 1 .498.45c.023.23.044.413.064.552A13.901 13.901 0 0 0 9.35 8.003c.095.2.033.439-.147.567l-2.158 1.542a13.047 13.047 0 0 0 6.844 6.844l1.54-2.154a.462.462 0 0 1 .573-.149 13.901 13.901 0 0 0 4 1.205c.139.02.322.042.55.064a.5.5 0 0 1 .449.498z" fill="rgba(0,0,0,1)"/></svg></a>
             <a style="margin-right:3rem ;position: absolute; right: 0;"  href="https://wa.me/91<%= record[i].phone  %>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill="none" d="M0 0h24v24H0z"/><path d="M2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.954 9.954 0 0 1-5.03-1.355L2.004 22zM8.391 7.308a.961.961 0 0 0-.371.1 1.293 1.293 0 0 0-.294.228c-.12.113-.188.211-.261.306A2.729 2.729 0 0 0 6.9 9.62c.002.49.13.967.33 1.413.409.902 1.082 1.857 1.971 2.742.214.213.423.427.648.626a9.448 9.448 0 0 0 3.84 2.046l.569.087c.185.01.37-.004.556-.013a1.99 1.99 0 0 0 .833-.231c.166-.088.244-.132.383-.22 0 0 .043-.028.125-.09.135-.1.218-.171.33-.288.083-.086.155-.187.21-.302.078-.163.156-.474.188-.733.024-.198.017-.306.014-.373-.004-.107-.093-.218-.19-.265l-.582-.261s-.87-.379-1.401-.621a.498.498 0 0 0-.177-.041.482.482 0 0 0-.378.127v-.002c-.005 0-.072.057-.795.933a.35.35 0 0 1-.368.13 1.416 1.416 0 0 1-.191-.066c-.124-.052-.167-.072-.252-.109l-.005-.002a6.01 6.01 0 0 1-1.57-1c-.126-.11-.243-.23-.363-.346a6.296 6.296 0 0 1-1.02-1.268l-.059-.095a.923.923 0 0 1-.102-.205c-.038-.147.061-.265.061-.265s.243-.266.356-.41a4.38 4.38 0 0 0 .263-.373c.118-.19.155-.385.093-.536-.28-.684-.57-1.365-.868-2.041-.059-.134-.234-.23-.393-.249-.054-.006-.108-.012-.162-.016a3.385 3.385 0 0 0-.403.004z" fill="rgba(47,204,113,1)"/></svg></a>
             </div>

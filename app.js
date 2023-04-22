@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const User = require("./models/user")
 const mongoose = require("mongoose")
+const serverless = require('serverless-http')
+const PORT = process.env.PORT || 8000
 
 require('./db/conn')
 const app = express();
@@ -58,7 +60,16 @@ app.post('/',async(req,res)=>{
 // console.log(User.find({}));
 
 })
+const date = new Date();
+var weekday ;
 
+if(date.getDay()==0)weekday="Sunday"
+else if(date.getDay()==1)weekday="Monday"
+else if(date.getDay()==2)weekday="Tuesday"
+else if(date.getDay()==3)weekday="Wedday"
+else if(date.getDay()==4)weekday="Thrusday"
+else if(date.getDay()==5)weekday="Friday"
+else if(date.getDay()==6)weekday="Saturday"
 
 app.get("/client17",(req,res)=>{
     //     fetchid = req.params.id;
@@ -70,8 +81,9 @@ app.get("/client17",(req,res)=>{
     User.find().then((result)=>{
         
         // result.forEach((data)=>{
+
            result.reverse();
-            res.render("crm",{kindOfDay:"Monday",record:result});
+            res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
             
             // res.send(data.clientName + " ");
         // })
@@ -92,9 +104,8 @@ app.get("/client17",(req,res)=>{
         ]}).then((result)=>{
         
             // result.forEach((data)=>{
-                console.log(result);
                result.reverse();
-               res.render("crm",{kindOfDay:"Monday",record:result});
+               res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
                // res.send(data.clientName + " ");
                // })
             }).catch((err)=>{
@@ -108,6 +119,7 @@ app.get("/client17",(req,res)=>{
 
 // })
 
-app.listen(5000,(req,res)=>{
+app.listen(PORT,(req,res)=>{
     console.log(`Server Is Running On 5000`);
 })
+

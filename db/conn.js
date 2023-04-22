@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 // creating a database
 mongoose.set("strictQuery",true);
-mongoose.connect('mongodb://127.0.0.1:27017/myproperty',{
+mongoose.connect('mongodb+srv://sajitesh55:JX46hGJoK8t5Mcww@cluster0.9op3y4a.mongodb.net/myproperty',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>{

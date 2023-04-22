@@ -8,6 +8,13 @@ const userSchema = mongoose.Schema({
         type:String,
         require:true
     },
+    // properties: [
+    //      {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'properties',
+
+    //     }
+    // ],
     propertyChoice:{
         type:String,
         required:true,
