@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const User = require("./models/user")
+const Broker = require("./models/broker")
 const mongoose = require("mongoose")
-const serverless = require('serverless-http')
+const serverless = require('serverless-http');
+const { render } = require('ejs');
 const PORT = process.env.PORT || 8000
 
 require('./db/conn')
@@ -25,27 +27,32 @@ app.use(bodyParser.urlencoded({extended:false}))
         res.render("main")
     })
 
-    
+    app.get("/aboutus",(req,res)=>{ 
+        res.render("aboutus")
+    })
 
-app.post('/',async(req,res)=>{
+app.post('/client',async(req,res)=>{
     try{
         //  res.send(req.body)
         const userData = new User({
             clientName:req.body.clientName,
             propertyChoice:req.body.propertyChoice,
             location:req.body.location,
+            particularLocation:req.body.particularLocation,
             budget:req.body.budget,
             phone:req.body.phone,
             email:req.body.email,
+            description: req.body.description,
             id:req.body.id,
      });
 
        
-     if(userData.location=="Chandigarh"){
-       await userData.save();
-     }
      
-        res.status(201).render("main");
+       await userData.save();
+
+ 
+     
+        res.status(201).render("welcome");
      
     }         catch(error){
         res.status(500).send(error)
@@ -60,6 +67,38 @@ app.post('/',async(req,res)=>{
 // console.log(User.find({}));
 
 })
+
+app.post('/broker',async(req,res)=>{
+    try{
+        //  res.send(req.body)
+        const brokerData = new Broker({
+          
+            businessName:req.body.businessName,
+            brokerName:req.body.brokerName,
+            location:req.body.location,
+            officeLocation:req.body.officeLocation,
+            previousDeals:req.body.previousDeals,
+            phone:req.body.phone,
+            email:req.body.email,
+            description: req.body.description,
+            id:req.body.id,
+     });
+
+       console.log(brokerData);
+     
+       await brokerData.save();
+
+ 
+     
+        res.status(201).render("welcome");
+     
+    }         catch(error){
+        res.status(500).send(error)
+    }
+
+})
+
+
 const date = new Date();
 var weekday ;
 
@@ -120,6 +159,6 @@ app.get("/client17",(req,res)=>{
 // })
 
 app.listen(PORT,(req,res)=>{
-    console.log(`Server Is Running On 5000`);
+    console.log(`Server Is Running On ${PORT}`);
 })
 

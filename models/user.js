@@ -6,7 +6,6 @@ const userSchema = mongoose.Schema({
     },
     clientName:{
         type:String,
-        require:true
     },
     // properties: [
     //      {
@@ -17,27 +16,30 @@ const userSchema = mongoose.Schema({
     // ],
     propertyChoice:{
         type:String,
-        required:true,
 
         },
  
        location:{
         type:String,
-        required:true
        },
-
-       budget:{
+       particularLocation:{
         type:String,
-        required:true
+
+       },
+       budget:{
+        type:Number,
+     
        },
        phone:{
-        type:String,
+        type:Number,
         required:true
        } ,
        email:{
         type:String,
-        required:true
        } ,
+       description:{
+        type:String
+       },
        date:{
         type:Date,
         default:Date.now
