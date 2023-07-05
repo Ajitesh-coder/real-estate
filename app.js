@@ -8,7 +8,7 @@ const serverless = require('serverless-http');
 const { render } = require('ejs');
 const PORT = process.env.PORT || 8000
 
-// require('./db/conn')
+require('./db/conn')
 const app = express();
 var inputs = [];
 
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
  app.post('/client',async(req,res)=>{
    try{
-         res.send(req.body)
+        // res.send(req.body)
        const userData = new User({
            clientName:req.body.clientName,
            propertyChoice:req.body.propertyChoice,
@@ -161,4 +161,3 @@ else if(date.getDay()==6)weekday="Saturday"
 app.listen(PORT,(req,res)=>{
     console.log(`Server Is Running On ${PORT}`);
 })
-
