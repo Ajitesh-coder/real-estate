@@ -66,7 +66,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 // console.log(User.findById({id:fetchid}));
 // console.log(User.find({}));
 
-})
+// })
 
 // app.post('/broker',async(req,res)=>{
 //     try{
