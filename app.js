@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const User = require("./models/user")
 const Broker = require("./models/broker")
-// const mongoose = require("mongoose")
+const mongoose = require("mongoose")
 const serverless = require('serverless-http');
 const { render } = require('ejs');
 const PORT = process.env.PORT || 8000
@@ -31,32 +31,32 @@ app.use(bodyParser.urlencoded({extended:false}))
         res.render("aboutus")
     })
 
-//  app.post('/client',async(req,res)=>{
-   // try{
-        //  res.send(req.body)
-      //  const userData = new User({
-         //   clientName:req.body.clientName,
-        //    propertyChoice:req.body.propertyChoice,
-       //     location:req.body.location,
-      //      particularLocation:req.body.particularLocation,
-     //       budget:req.body.budget,
-    //        phone:req.body.phone,
-   //         email:req.body.email,
-  //          description: req.body.description,
- //           id:req.body.id,
-//     });
+ app.post('/client',async(req,res)=>{
+   try{
+         res.send(req.body)
+       const userData = new User({
+           clientName:req.body.clientName,
+           propertyChoice:req.body.propertyChoice,
+           location:req.body.location,
+           particularLocation:req.body.particularLocation,
+           budget:req.body.budget,
+           phone:req.body.phone,
+           email:req.body.email,
+           description: req.body.description,
+           id:req.body.id,
+    });
 
        
      
-//       await userData.save();
+      await userData.save();
 
  
      
-//        res.status(201).render("welcome");
+       res.status(201).render("welcome");
      
-//    }         catch(error){
-//    res.status(500).send(error)
-//  }
+   }         catch(error){
+   res.status(500).send(error)
+ }
 
 //     User.find({}).then((err,foundItems)=>{
 //         console.log(foundItems);
@@ -66,37 +66,37 @@ app.use(bodyParser.urlencoded({extended:false}))
 // console.log(User.findById({id:fetchid}));
 // console.log(User.find({}));
 
-// })
+})
 
-// app.post('/broker',async(req,res)=>{
-//     try{
-//         //  res.send(req.body)
-//         const brokerData = new Broker({
+app.post('/broker',async(req,res)=>{
+    try{
+        //  res.send(req.body)
+        const brokerData = new Broker({
           
-//             businessName:req.body.businessName,
-//             brokerName:req.body.brokerName,
-//             location:req.body.location,
-//             officeLocation:req.body.officeLocation,
-//             previousDeals:req.body.previousDeals,
-//             phone:req.body.phone,
-//             email:req.body.email,
-//             description: req.body.description,
-//             id:req.body.id,
-//      });
+            businessName:req.body.businessName,
+            brokerName:req.body.brokerName,
+            location:req.body.location,
+            officeLocation:req.body.officeLocation,
+            previousDeals:req.body.previousDeals,
+            phone:req.body.phone,
+            email:req.body.email,
+            description: req.body.description,
+            id:req.body.id,
+     });
 
 //        console.log(brokerData);
      
-//        await brokerData.save();
+       await brokerData.save();
 
  
      
-//         res.status(201).render("welcome");
+        res.status(201).render("welcome");
      
-//     }         catch(error){
-//         res.status(500).send(error)
-//     }
+    }         catch(error){
+        res.status(500).send(error)
+    }
 
-// })
+})
 
 
 const date = new Date();
