@@ -110,53 +110,53 @@ else if(date.getDay()==4)weekday="Thrusday"
 else if(date.getDay()==5)weekday="Friday"
 else if(date.getDay()==6)weekday="Saturday"
 
-// app.get("/client17",(req,res)=>{
-     //     fetchid = req.params.id;
-     //   console.log(User.findById({id:fetchid}));
-    //   res.send(User.find({}));
+app.get("/client17",(req,res)=>{
+         fetchid = req.params.id;
+       console.log(User.findById({id:fetchid}));
+      res.send(User.find({}));
  
 
   
-//     User.find().then((result)=>{
+    User.find().then((result)=>{
         
-//         // result.forEach((data)=>{
+        // result.forEach((data)=>{
 
-//            result.reverse();
-//             res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
+           result.reverse();
+            res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
             
-//             // res.send(data.clientName + " ");
-//         // })
-//     }).catch((err)=>{
-//         console.log(err);
-//     })
-//      })
+            // res.send(data.clientName + " ");
+        // })
+    }).catch((err)=>{
+        console.log(err);
+    })
+     })
 
-//      app.post("/client17/search/",(req,res)=>{
+     app.post("/client17/search/",(req,res)=>{
 
-//         let value = req.body.value;
-//         let data = [];
-//         User.find({$or: [
-//             {location: {$regex: new RegExp(value, "i")} },
-//            {clientName: {$regex: new RegExp(value, "i")}},
-//            {phone: {$regex: new RegExp(value, "i")}}
+        let value = req.body.value;
+        let data = [];
+        User.find({$or: [
+            {location: {$regex: new RegExp(value, "i")} },
+           {clientName: {$regex: new RegExp(value, "i")}},
+           {phone: {$regex: new RegExp(value, "i")}}
 
-//         ]}).then((result)=>{
+        ]}).then((result)=>{
         
-//             // result.forEach((data)=>{
-//                result.reverse();
-//                res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
-//                // res.send(data.clientName + " ");
-//                // })
-//             }).catch((err)=>{
-//                 console.log(err);
-//             })
+            // result.forEach((data)=>{
+               result.reverse();
+               res.render("crm",{kindOfDay:weekday,Hours:date.getDate(),Min:date.getMonth(),Sec:date.getFullYear(),record:result});
+               // res.send(data.clientName + " ");
+               // })
+            }).catch((err)=>{
+                console.log(err);
+            })
 
-//      })
+     })
 
 
-// app.get("/crm",(req,res)=>{
+app.get("/crm",(req,res)=>{
 
-// })
+})
 
 app.listen(PORT,(req,res)=>{
     console.log(`Server Is Running On ${PORT}`);
